@@ -68,16 +68,19 @@ class Card {     //  This class represents a playing card. Each card has a suit 
     }
   }
   
-  document.getElementById('startButton').addEventListener('click', function() {
-    // Create a new deck and deal cards to each player
+    // the code below creates a button that is saying when clicked on it will run the game
+    document.getElementById('startButton').addEventListener('click', function() {
+    
+  // Create a new deck and deal cards to each player
     const deck = new Deck();
     const player1 = new Player('Player 1', deck.deal());
     const player2 = new Player('Player 2', deck.deal());
   
     // Play the game
-    while (player1.cards.length > 0 && player2.cards.length > 0) {
-      const card1 = player1.playCard();
-      const card2 = player2.playCard();
+    while (player1.cards.length > 0 && player2.cards.length > 0) {// as long as cards are in players hand the while loop continues 
+      
+      const card1 = player1.playCard(); // this code player1.cards.length > 0 checks if player 1 still has cards
+      const card2 = player2.playCard(); // this code player2.cards.length > 0 checks if player 2 still has cards.
   
       if (card1.value > card2.value) {
         player1.increaseScore();
